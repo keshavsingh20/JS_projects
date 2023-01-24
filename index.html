@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            background-color: yellowgreen;
+            color:white;
+            padding:10px;
+            margin: 0;
+        }
+        #textbox{
+            width: 99.3%;
+            border-color: yellowgreen;
+            font-size: 20px;
+        }
+        p{
+            text-align: center;
+            background-color: yellowgreen;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea rows="10" cols="40" id="textbox"></textarea>
+    <p>
+        <span id="words">0</span> Words and <span id="chars">0</span> Characters.
+    </p>
+
+    <script>
+        let textbox = document.getElementById("textbox");
+        textbox.addEventListener('input', function(){
+            var text = this.value;
+            // console.log(text);
+            let chars = text.length;
+            // let words = 0;
+
+            text = text.trim();
+            // for(let i = 0; i < text.length; i++){
+            //     if(text[i] == ' ') {
+            //         words += 1;
+            //     }
+            // }
+            // words += 1;
+            // split also can be used for word counting.
+
+            let words = text.split(' ');
+
+            words = words.filter(function(ele){
+                return ele != "";
+            })
+            // console.log(chars);
+            console.log(words);
+            
+            document.getElementById("words").innerHTML = words.length;
+            document.getElementById("chars").innerHTML = chars;
+            
+        });
+    </script>
+</body>
+</html>
